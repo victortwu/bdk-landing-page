@@ -1,13 +1,14 @@
 import React from 'react'
+import Hamburger from '../hamburger/hambuger.component'
 
 import './header.styles.scss'
 
 const Header = () => {
     return(
-        
-        <>
-        HEADER
-        </>
+        <div className="header">
+            <div className="logo">LOGO</div>
+            <Hamburger/>
+        </div>
     )
 }
 
