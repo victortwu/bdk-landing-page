@@ -1,3 +1,24 @@
 .home-page {
+    height: 100vh;
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+    .home-page-content {
+        width: 75%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--sky);
+        border-radius: 1rem;
+
+        p {
+            margin: 0 2rem;
+        }
+    }
  
 }

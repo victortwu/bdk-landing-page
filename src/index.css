@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
 body {
   margin: 0;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 :root {
@@ -11,5 +14,10 @@ body {
   --sand: #8b8475;
   --dark: #323432;
   --light: #fefefe;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 

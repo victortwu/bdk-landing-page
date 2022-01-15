@@ -1,36 +1,51 @@
-@mixin line-style {
-    width: 100%;
-    height: .2rem;
-    background-color: var(--light);
-   
+@mixin front-back-styles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
 }
 
-@mixin flattenBurger {
-    width: 8rem;
-    flex-direction: row-reverse;
-    align-items: flex-end;
-}
 
 .hamburger {
     width: 2rem;
     height: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    position: relative;
+    transform-style: preserve-3d;
     transition: .3s;
     cursor: pointer;
-
-    
 
     &:hover {
         transform: scale(1.05);
     }
 
-    .line-one, .line-two, .line-three {
-        @include line-style
+    .front {
+        @include front-back-styles();
+        flex-direction: column;
+        justify-content: space-between;
+        backface-visibility: hidden;
+        z-index: 1;
+        
+        .hamburger-line {
+            width: 100%;
+            height: .2rem;
+            background-color: var(--light);
+        }
     }
 
-    &.rotate {
-        @include flattenBurger()
+    .back {
+        @include front-back-styles();
+        justify-content: center;
+        align-items: center;
+        color: var(--light);
+        font-size: 2.5rem;
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        z-index: 2;
+    }
+    
+    &.flip-burger {
+        transform: rotateY(180deg)
     }
 }
