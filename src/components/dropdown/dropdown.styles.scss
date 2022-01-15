@@ -1,3 +1,9 @@
+.dropdown-container {
+    &.hide {
+        display: none;
+    }
+}
+
 .dropdown {
     position: absolute;
     width: 100%;
@@ -18,10 +24,11 @@
        color: var(--light); 
     }
 
-    &.hide {
+    &.slide-down {
         top: 100%;
         transition: all .4s ease-out;
     }
+
 
     &.show {
         top: 4rem;
