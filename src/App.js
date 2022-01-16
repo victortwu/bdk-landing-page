@@ -1,4 +1,5 @@
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion';
 
 import HomePage from './pages/home-page/home-page';
 import Header from './components/header/header.component';
@@ -12,14 +13,19 @@ import './App.css';
 
 const App = () => {
 
+  const location = useLocation()
  
   return (
     <div className="App">
       <Header/>
-      <Switch>
-        <Route exact path='/' component={HomePage}/>
-        <Route path='/about' component={AboutPage}/>
-      </Switch>
+        <AnimatePresence>
+
+          <Switch location={location} key={location.key}>
+            <Route exact path='/' component={HomePage}/>
+            <Route path='/about' component={AboutPage}/>
+          </Switch>
+      
+        </AnimatePresence>
       <Footer/>
     </div>
   );
