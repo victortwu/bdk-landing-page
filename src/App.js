@@ -1,3 +1,4 @@
+import React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
 
@@ -6,27 +7,35 @@ import Header from './components/header/header.component';
 import AboutPage from './pages/about/about-page.component';
 import Footer from './components/footer/footer.component'
 
+import { GlobalProvider } from './GlobalContext';
 import './App.css';
 
+export const ResInfoContext = React.createContext()
 
-
+const sayHello = () => {
+  console.log('HELLO')
+}
 
 const App = () => {
 
   const location = useLocation()
- 
+
   return (
     <div className="App">
-      <Header/>
-        <AnimatePresence>
+      <GlobalProvider>
+        <Header/>
+          <AnimatePresence>
+    
 
-          <Switch location={location} key={location.key}>
-            <Route exact path='/' component={HomePage}/>
-            <Route path='/about' component={AboutPage}/>
-          </Switch>
-      
-        </AnimatePresence>
-      <Footer/>
+            <Switch location={location} key={location.key}>
+              <Route exact path='/' component={HomePage}/>
+              <Route path='/about' component={AboutPage}/>
+            </Switch>
+          
+        
+          </AnimatePresence>
+        <Footer/>
+      </GlobalProvider>
     </div>
   );
 }

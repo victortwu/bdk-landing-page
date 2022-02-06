@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 
 import './dropdown.styles.scss'
 
-const DropDown = ( { toggled, showOrHide, dropdownHidden } ) => {
+
+const DropDown = ( { dropdownHidden, toggled, showOrHide } ) => {
+    
+
+    
     return (
     <div className={`${dropdownHidden ? 'hide' : ''} dropdown-container`}>
         <div className={`${toggled ? 'show' : 'slide-down'} dropdown`}>

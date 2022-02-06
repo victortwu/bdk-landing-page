@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom' 
+import { Link } from 'react-router-dom'
+
+import { useGlobalContext, useUpdateGlobalContext } from '../../GlobalContext'
 
 import Hamburger from '../hamburger/hambuger.component'
 import DropDown from '../dropdown/dropdown.component'
@@ -8,22 +10,24 @@ import DropDown from '../dropdown/dropdown.component'
 import './header.styles.scss'
 
 const Header = () => {
-    const [toggled, setToggled] = React.useState(false)
-    const [dropdownHidden, setDropdownHidden] = React.useState(true)
+    // const [toggled, setToggled] = React.useState(false)
+    // const [dropdownHidden, setDropdownHidden] = React.useState(true)
 
-    const hideDropdown = () => {
-        setToggled(false)
-        setTimeout(()=> setDropdownHidden(true), 400)
-    }
+    // const hideDropdown = () => {
+    //     setToggled(false)
+    //     setTimeout(()=> setDropdownHidden(true), 400)
+    // }
        
-    const showDropdown = () => {
-        setDropdownHidden(false) 
-        setTimeout(() => setToggled(true), 400)
-    }
+    // const showDropdown = () => {
+    //     setDropdownHidden(false) 
+    //     setTimeout(() => setToggled(true), 400)
+    // }
 
-    const showOrHide = () => {
-        toggled ? hideDropdown() : showDropdown()
-    }
+    // const showOrHide = () => {
+    //     toggled ? hideDropdown() : showDropdown()
+    // }
+    const { toggled, dropdownHidden, data } = useGlobalContext()
+    const { showOrHide, hideDropdown } = useUpdateGlobalContext() 
 
     return(
         <>
@@ -35,7 +39,7 @@ const Header = () => {
                     >
                         LOGO
                 </Link>
-                <Hamburger toggled={toggled} setToggled={setToggled} showOrHide={showOrHide}/>
+                <Hamburger />
             </div>
             <DropDown toggled={toggled} dropdownHidden={dropdownHidden} showOrHide={showOrHide}/>
         </>

@@ -1,10 +1,15 @@
 import React from 'react'
+
+import { useGlobalContext, useUpdateGlobalContext } from '/Users/victortwu/Desktop/projects/bdk-page/src/GlobalContext.js'
 import './hamburger.styles.scss'
 
-const Hamburger = ( { toggled, setToggled, showOrHide } ) => {
+const Hamburger = ( ) => {
+    
+    const state = useGlobalContext()
+    const actions = useUpdateGlobalContext()
     
     return(
-        <div onClick={()=> showOrHide()} className={`${toggled ? 'flip-burger' : ''} hamburger`}>
+        <div onClick={()=> actions.showOrHide()} className={`${state.toggled ? 'flip-burger' : ''} hamburger`}>
             <div className='front'>
                 <div className="hamburger-line"/>
                 <div className="hamburger-line"/>
