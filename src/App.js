@@ -15,7 +15,7 @@ export const ResInfoContext = React.createContext()
 const sayHello = () => {
   console.log('HELLO')
 }
-
+// THIS IS A TEST
 const App = () => {
 
   const location = useLocation()
@@ -25,14 +25,10 @@ const App = () => {
       <GlobalProvider>
         <Header/>
           <AnimatePresence>
-    
-
             <Switch location={location} key={location.key}>
               <Route exact path='/' component={HomePage}/>
               <Route path='/about' component={AboutPage}/>
             </Switch>
-          
-        
           </AnimatePresence>
         <Footer/>
       </GlobalProvider>
